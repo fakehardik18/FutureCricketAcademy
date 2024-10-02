@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Responsive Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animation for the gradient shift */
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .gradient-animation {
+            background: linear-gradient(135deg, #1E3A8A, #93C5FD);
+            /* Dark blue to light blue */
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease infinite;
+        }
+    </style>
+</head>
+
+<body class="font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">Future Cricket Academy</div>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="hover:underline">Home</a></li>
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Services</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Blue Section with Animated Gradient -->
+    <section class="gradient-animation text-white p-10 sm:p-20">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between">
+
+            <!-- Hero Text on the Left -->
+            <div class="lg:w-1/2 mb-10 lg:mb-0 lg:mr-10 text-left">
+                <h1 class="text-3xl sm:text-5xl font-bold mb-6">Future Cricket Academy</h1>
+                <p class="text-base sm:text-lg mb-8">
+                    Welcome to Future Cricket Academy, where we nurture the next generation of cricket stars.
+                    Join us to hone your skills and train with the best coaches in the country.
+                </p>
+                <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                    Learn More
+                </button>
+            </div>
+
+            <!-- Image/Carousel Placeholder on the Right -->
+            <div class="lg:w-1/2 flex justify-center">
+                <div
+                    class="bg-gray-300 w-full sm:w-[500px] h-[300px] sm:h-[500px] flex justify-center items-center text-gray-700 text-xl">
+                    Carousel of Photos
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- White Section with Cards -->
+    <section class="bg-white text-black p-10 sm:p-20">
+        <div class="container mx-auto">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">Our Offerings</h1>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card 1: Coaching -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Coaching</h2>
+                    <p class="text-gray-600 mb-6">
+                        Learn from our highly trained professional coaches who will help you perfect your game.
+                    </p>
+                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Card 2: Equipment -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Equipment</h2>
+                    <p class="text-gray-600 mb-6">
+                        We provide top-quality cricket equipment for both beginners and seasoned players.
+                    </p>
+                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Card 3: Fees -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Fees</h2>
+                    <p class="text-gray-600 mb-6">
+                        Explore our affordable fee structure for various coaching programs and membership plans.
+                    </p>
+                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Card 4: Our Story -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Story</h2>
+                    <p class="text-gray-600 mb-6">
+                        Discover how our academy began and our journey to becoming a premier cricket institute.
+                    </p>
+                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                        Learn More
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Orange Section with Contact Info -->
+    <section class="bg-orange-500 text-white p-10 sm:p-12">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between lg:space-x-10">
+
+            <!-- Text and Buttons on the Left -->
+            <div class="lg:w-1/2 mb-8 lg:mb-0 text-left">
+                <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Contact Us</h2>
+                <p class="text-base sm:text-lg mb-4">
+                    Reach out to us with any questions or inquiries. Our team is available to assist you with
+                    any details you need regarding our cricket academy, training schedules, and more.
+                    Visit us at our main training facility, located in the heart of Sportstown.
+                </p>
+                <div class="space-x-4">
+                    <button
+                        class="bg-white text-orange-600 font-semibold py-2 px-4 rounded hover:bg-orange-600 hover:text-white">
+                        Call Us
+                    </button>
+                    <button
+                        class="bg-white text-orange-600 font-semibold py-2 px-4 rounded hover:bg-orange-600 hover:text-white">
+                        Email Us
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image on the Right -->
+            <div class="lg:w-1/2 flex justify-end">
+                <div
+                    class="bg-gray-300 w-full sm:w-[200px] h-[200px] mb-4 flex justify-center items-center text-gray-700 text-sm">
+                    Location Image 200x200
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Future Cricket Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
