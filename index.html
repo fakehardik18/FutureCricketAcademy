@@ -4,9 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Site</title>
+    <title>Future Cricket Academy</title>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .image-slider {
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+
+        .image-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .animate-slider {
+            display: flex;
+            animation: scroll 15s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+
+            /* Adjusted to move half the total width */
+        }
+
+        /* Additional styling for text overflow */
+        .text-ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Additional styling for responsive design */
+        @media (max-width: 768px) {
+            .animate-slider {
+                animation: scroll 30s linear infinite;
+                /* Slower on smaller screens */
+            }
+        }
+
         /* Custom animation for the gradient shift */
         @keyframes gradientShift {
 
@@ -21,28 +71,29 @@
         }
 
         .gradient-animation {
-            background: linear-gradient(135deg, #1E3A8A, #93C5FD);
+            background: linear-gradient(135deg, #1E3A8A, #00059f);
             /* Dark blue to light blue */
             background-size: 200% 200%;
             animation: gradientShift 5s ease infinite;
         }
     </style>
+
 </head>
 
 <body class="font-sans">
 
     <!-- Navbar -->
-    <nav class="bg-gray-800 text-white p-4">
+    <nav class="bg-gray-800 text-white p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold">Future Cricket Academy</div>
+            <div class="text-sm font-bold">Future Cricket Academy</div>
             <ul class="flex space-x-4">
                 <li><a href="#" class="hover:underline">Home</a></li>
-                <li><a href="#" class="hover:underline">About</a></li>
-                <li><a href="#" class="hover:underline">Services</a></li>
-                <li><a href="#" class="hover:underline">Contact</a></li>
+                <li><a href="#testimonials" class="hover:underline">Testimonials</a></li>
+                <li><a href="#contact" class="hover:underline">Contact</a></li>
             </ul>
         </div>
     </nav>
+
 
     <!-- Blue Section with Animated Gradient -->
     <section class="gradient-animation text-white p-10 sm:p-20">
@@ -55,85 +106,241 @@
                     Welcome to Future Cricket Academy, where we nurture the next generation of cricket stars.
                     Join us to hone your skills and train with the best coaches in the country.
                 </p>
-                <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                    Learn More
-                </button>
             </div>
 
-            <!-- Image/Carousel Placeholder on the Right -->
+            <!-- Single Image on the Right -->
             <div class="lg:w-1/2 flex justify-center">
-                <div
-                    class="bg-gray-300 w-full sm:w-[500px] h-[300px] sm:h-[500px] flex justify-center items-center text-gray-700 text-xl">
-                    Carousel of Photos
-                </div>
+                <img src="hero.png" alt="Achievement"
+                    class="w-full h-auto max-h-[450px] object-cover aspect-[16/9] rounded-lg">
             </div>
-
         </div>
     </section>
+
 
     <!-- White Section with Cards -->
     <section class="bg-white text-black p-10 sm:p-20">
         <div class="container mx-auto">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center">Our Offerings</h1>
-
-            <!-- Cards Grid -->
+            <h1 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center" id="Services">Our Offerings</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
                 <!-- Card 1: Coaching -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Coaching</h2>
+                    <img src="playing.png" alt="Coaching" class="w-48 h-48 mx-auto mb-4 rounded-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Training Timings</h2>
                     <p class="text-gray-600 mb-6">
-                        Learn from our highly trained professional coaches who will help you perfect your game.
+                        Our academy offers tailored cricket training for all skill levels. Programs focus on improving
+                        batting, bowling, and fielding, ensuring comprehensive development for every player.
                     </p>
-                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
+                    <a href="#timings">
+                        <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                            Learn More
+                        </button>
+                    </a>
                 </div>
-
                 <!-- Card 2: Equipment -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Equipment</h2>
+                    <img src="coaching.png" alt="Equipment" class="w-48 h-48 mx-auto mb-4 rounded-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Coaches</h2>
                     <p class="text-gray-600 mb-6">
-                        We provide top-quality cricket equipment for both beginners and seasoned players.
+                        Our experienced coaches provide personalized training, helping players enhance their skills and
+                        reach their full potential with expert guidance and years of professional cricket knowledge.
                     </p>
-                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
+                    <a href="#coaches">
+                        <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                            Learn More
+                        </button>
+                    </a>
                 </div>
-
                 <!-- Card 3: Fees -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Fees</h2>
+                    <img src="achivements.png" alt="Our Story" class="w-48 h-48 mx-auto mb-4 rounded-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Testimonials</h2>
                     <p class="text-gray-600 mb-6">
-                        Explore our affordable fee structure for various coaching programs and membership plans.
+                        See what our students and parents have to say! Our testimonials reflect the dedication and
+                        excellence we bring to cricket training, helping young athletes achieve their full potential
                     </p>
-                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
+                    <a href="#testimonials">
+                        <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                            Learn More
+                        </button>
+                    </a>
                 </div>
-
                 <!-- Card 4: Our Story -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-center">
-                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Our Story</h2>
+                    <img src="join.png" alt="Our Story" class="w-48 h-48 mx-auto mb-4 rounded-lg">
+                    <h2 class="text-xl sm:text-2xl font-semibold mb-4">Contact us</h2>
                     <p class="text-gray-600 mb-6">
-                        Discover how our academy began and our journey to becoming a premier cricket institute.
+                        See what our students and parents have to say! Our testimonials reflect the dedication and
+                        excellence we bring to cricket training, helping young athletes achieve their full potential
                     </p>
-                    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                        Learn More
-                    </button>
+                    <a href="#contact">
+                        <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                            contact us
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-100 text-black p-10 sm:p-20" id="timings">
+        <div class="container mx-auto">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-6 text-center">Academy Timings</h2>
+            <p class="text-center text-lg mb-8">
+                Explore our academy timings for classes and training sessions
+            </p>
+
+            <!-- Timings Table -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                    <thead class="bg-blue-500 text-white">
+                        <tr>
+                            <th class="py-3 px-6 text-left">Day</th>
+                            <th class="py-3 px-6 text-left">Morning Timings</th>
+                            <th class="py-3 px-6 text-left">Evening Timings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="py-3 px-6">Sunday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-red-500">Closed</td>
+                        </tr>
+                        <tr class="bg-gray-100 border-b">
+                            <td class="py-3 px-6">Monday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-green-500">2:00 PM to 4:00 PM</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-6">Tuesday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-red-500">Closed</td>
+                        </tr>
+                        <tr class="bg-gray-100 border-b">
+                            <td class="py-3 px-6">Wednesday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-green-500">2:00 PM to 4:00 PM</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-6">Thursday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-red-500">Closed</td>
+                        </tr>
+                        <tr class="bg-gray-100 border-b">
+                            <td class="py-3 px-6">Friday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-red-500">Closed</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="py-3 px-6">Saturday</td>
+                            <td class="py-3 px-6 text-green-500">7:30 AM to 11:30 AM</td>
+                            <td class="py-3 px-6 text-red-500">Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="bg-gray-100 text-black p-8 sm:p-20" id="coaches">
+        <div class="container mx-auto">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-6 text-center">Our Coaches</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Coach Card 1 -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="coaches.png" alt="Coach Name 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Coach Name 1</h3>
+                    </div>
+                </div>
+
+                <!-- Coach Card 2 -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="coaches.png" alt="Coach Name 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Coach Name 2</h3>
+                    </div>
+                </div>
+
+                <!-- Coach Card 3 -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="coaches.png" alt="Coach Name 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Coach Name 3</h3>
+                    </div>
+                </div>
+
+                <!-- Coach Card 4 -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="coaches.png" alt="Coach Name 4" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Coach Name 4</h3>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
+    <section class="bg-gray-100 text-black p-10 sm:p-20" id="testimonials">
+        <div class="container mx-auto">
+            <h2 class="text-2xl sm:text-4xl font-bold mb-6 text-center">Testimonials</h2>
+            <p class="text-center text-lg mb-8">
+                Customer testimonials sourced from <a style="color: blue;"
+                    href="https://www.justdial.com/Delhi/Future-Cricket-Academy-Behind-HP-Petrol-Pump-Chanakya-Puri/011PXX11-XX11-151126152924-D6C6_BZDET?trkid=&term=&ncatid=10147469&area=&search=Showing%20Results%20for%20%22Future%20Cricket%20Academy%22%20in%20Delhi&mncatname=Future%20Cricket%20Academy&abd_btn=&abd_heading=&isFreetxt=1&bd=2&">Just
+                    Dial</a> showcase our excellence
+            </p>
+            <!-- Testimonials Slider -->
+            <div class="overflow-hidden relative">
+                <div class="whitespace-nowrap animate-slider">
+                    <!-- Testimonial Card 3 -->
+                    <div class="inline-block bg-white shadow-md rounded-lg p-4 m-2" style="width: 300px;">
+                        <h3 class="font-semibold mb-2">Chaudhry</h3>
+                        <p class="text-ellipsis overflow-hidden whitespace-nowrap">"I had an excellent experience with
+                            Future Cricket Academy. The certified trainers were extremely skilled and well-mannered. The
+                            academy is easily accessible and well-connected, making it convenient for anyone to join.
+                            Overall, it was a great experience."</p>
+                    </div>
+
+                    <!-- Testimonial Card 4 -->
+                    <div class="inline-block bg-white shadow-md rounded-lg p-4 m-2" style="width: 300px;">
+                        <h3 class="font-semibold mb-2">Vipul</h3>
+                        <p class="text-ellipsis overflow-hidden whitespace-nowrap">"Future Cricket Academy provided a
+                            great experience for my child. The coaches were excellent and really helped improve his
+                            skills. The facilities were top-notch and the overall atmosphere was fantastic. Highly
+                            recommend!"</p>
+                    </div>
+
+                    <!-- Testimonial Card 5 -->
+                    <div class="inline-block bg-white shadow-md rounded-lg p-4 m-2" style="width: 300px;">
+                        <h3 class="font-semibold mb-2">Bushan</h3>
+                        <p class="text-ellipsis overflow-hidden whitespace-nowrap">"Best academy in delhi ncr and, good
+                            atmosphere and very supportive coach thank you sir"</p>
+                    </div>
+
+                    <!-- Duplicate Testimonials for Continuous Looping -->
+                    <div class="inline-block bg-white shadow-md rounded-lg p-4 m-2" style="width: 300px;">
+                        <h3 class="font-semibold mb-2">Nitin lakhera</h3>
+                        <p class="text-ellipsis overflow-hidden whitespace-nowrap">"Future cricket academy is one of the
+                            best academy in south Delhi. As I join FCA I have learnt so many cricket magical skills from
+                            Kamal sir who`s giving me a good platform to start my cricket dream."</p>
+                    </div>
+
+                    <div class="inline-block bg-white shadow-md rounded-lg p-4 m-2" style="width: 300px;">
+                        <h3 class="font-semibold mb-2">Adarsh Vishwakarma</h3>
+                        <p class="text-ellipsis overflow-hidden whitespace-nowrap">"Future cricket academy is one of the
+                            best academy in delhi. This academy gives many great talent to national level. I am a too
+                            happy to be a part of this academy"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Orange Section with Contact Info -->
     <section class="bg-orange-500 text-white p-10 sm:p-12">
         <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between lg:space-x-10">
 
             <!-- Text and Buttons on the Left -->
             <div class="lg:w-1/2 mb-8 lg:mb-0 text-left">
-                <h2 class="text-2xl sm:text-3xl font-semibold mb-2">Contact Us</h2>
+                <h2 class="text-2xl sm:text-3xl font-semibold mb-2" id="contact">Contact Us</h2>
                 <p class="text-base sm:text-lg mb-4">
                     Reach out to us with any questions or inquiries. Our team is available to assist you with
                     any details you need regarding our cricket academy, training schedules, and more.
@@ -142,33 +349,78 @@
                 <div class="space-x-4">
                     <button
                         class="bg-white text-orange-600 font-semibold py-2 px-4 rounded hover:bg-orange-600 hover:text-white">
-                        Call Us
+                        Whatsapp
                     </button>
-                    <button
-                        class="bg-white text-orange-600 font-semibold py-2 px-4 rounded hover:bg-orange-600 hover:text-white">
-                        Email Us
-                    </button>
+                    <a
+                        href="https://www.google.com/maps/place/Future+Cricket+Academy/@28.5911004,77.1964009,15z/data=!4m6!3m5!1s0x390ce38a1b151fcd:0xbf3a9e9b801a8cfa!8m2!3d28.5911004!4d77.1964009!16s%2Fg%2F11fjs4gcsn?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D">
+                        <button
+                            class="bg-white text-orange-600 font-semibold py-2 px-4 rounded hover:bg-orange-600 hover:text-white">
+                            Location on Maps
+                        </button>
+                    </a>
                 </div>
             </div>
 
             <!-- Image on the Right -->
             <div class="lg:w-1/2 flex justify-end">
-                <div
-                    class="bg-gray-300 w-full sm:w-[200px] h-[200px] mb-4 flex justify-center items-center text-gray-700 text-sm">
-                    Location Image 200x200
-                </div>
+                <img src="https://images.jdmagicbox.com/v2/comp/delhi/c6/011pxx11.xx11.151126152924.d6c6/catalogue/future-cricket-academy-chanakya-puri-delhi-cricket-coaching-classes-hruwsr410a.jpg"
+                    class="bg-gray-300 w-full sm:w-[200px] h-[160px] mb-4 flex justify-center items-center text-gray-700 text-sm">
+
+                </img>
             </div>
 
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white p-4">
+    <footer class="bg-gray-800 text-white p-4" id="contact">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Future Cricket Academy. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            slidesPerView: 1,
+            spaceBetween: 30,
+        });
+        const images = document.querySelectorAll('.image-wrapper img');
+        const totalImages = images.length;
+        let currentIndex = 0;
 
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateSlider();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateSlider();
+        });
+
+        function updateSlider() {
+            const offset = -currentIndex * 500; // 500px is the width of each image
+            document.querySelector('.image-wrapper').style.transform = `translateX(${offset}px)`;
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateSlider();
+        }, 5000);        
+    </script>
 </body>
 
 </html>
